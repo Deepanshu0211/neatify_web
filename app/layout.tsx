@@ -1,5 +1,6 @@
 import type React from "react"
 import { DM_Sans } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 
 const dmSans = DM_Sans({
@@ -21,11 +22,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${dmSans.variable} dark`}>
-      <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-      </head>
-      <body className="antialiased">{children}</body>
+      <head />
+      <body className="antialiased">
+        {children}
+
+        {/* Load GSAP asynchronously */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+          strategy="beforeInteractive"
+        />
+      </body>
     </html>
   )
 }
