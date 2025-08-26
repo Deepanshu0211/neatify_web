@@ -42,6 +42,9 @@ export function Header() {
             <a href="#download" className="text-zinc-400 hover:text-white transition-colors smooth-transition">
               Download
             </a>
+             <a href="/privacy" className="text-zinc-400 hover:text-white transition-colors smooth-transition">
+              Privacy
+            </a>
           </div>
 
         <Button
